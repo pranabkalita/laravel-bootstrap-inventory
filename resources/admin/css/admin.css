@@ -4,3 +4,8 @@
     border: 0;
     vertical-align: baseline;
 }
+
+.btn-link:hover.btn-anchor:hover {
+    color: red;
+    text-decoration: underline;
+}
