@@ -1,35 +1,56 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Admin</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    @vite(['resources/admin/plugins/fontawesome-free/css/all.min.css', 'resources/admin/css/adminlte.min.css', 'resources/admin/css/admin.css'])
+</head>
 
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <x-includes.top-navbar />
+
+        <!-- Main Sidebar Container -->
+        <x-includes.sidebar />
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            {{ $header }}
+                        </div><!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div>
             @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+
+            {{ $slot }}
         </div>
-    </body>
+        <!-- /.content-wrapper -->
+
+        <x-includes.control-sidebar />
+
+        <x-includes.footer />
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    @vite(['resources/admin/plugins/jquery/jquery.min.js', 'resources/admin/plugins/bootstrap/js/bootstrap.bundle.min.js', 'resources/admin/js/adminlte.js', 'resources/admin/plugins/chart.js/Chart.min.js', 'resources/admin/js/pages/dashboard3.js'])
+
+</body>
+
 </html>
