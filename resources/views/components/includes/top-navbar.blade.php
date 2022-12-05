@@ -38,11 +38,18 @@
             </div>
         </li>
 
-        <li class="nav-item">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="nav-link btn btn-link btn-anchor" href="">Logout</button>
-            </form>
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                <a href="{{ route('profile.edit') }}" class="dropdown-item">Profile</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link btn btn-link btn-anchor btn-logout"
+                        href="">Logout</button>
+                </form>
+            </div>
         </li>
 
     </ul>

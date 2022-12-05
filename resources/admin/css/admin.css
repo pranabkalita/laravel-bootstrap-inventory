@@ -5,7 +5,7 @@
     vertical-align: baseline;
 }
 
-.btn-link:hover.btn-anchor:hover {
-    color: red;
+.btn-logout {
+    color: red !important;
     text-decoration: underline;
 }
